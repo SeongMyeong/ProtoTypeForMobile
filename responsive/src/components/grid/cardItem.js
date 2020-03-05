@@ -1,33 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import './cardItem.css';
+import GridListTile from '@material-ui/core/GridListTile';
 
-class CardItem extends Component {
+const Item = styled.img.attrs(
+    props => ({ 'src': props.img })`
+        width: 150px;
+    `
+)
+
+const CardItem = (props) => {
     ////////////////////
     //< Constant
+    const cardItem = useState(props.cardItem)[0];
 
     ////////////////////
     //< React LifeCycle
-    constructor(props) {
-        super(props);
-    }
+
     ////////////////////
     //< Handler (include focus manager)
 
     ////////////////////
     //< private functions
-
     ////////////////////
     //< Rendering
-    render() {
-        const { data } = this.props;
-        return (
-            <div className={'cardItemDiv'}>
-                <img className={'cardItem'} src={data.poster} />
-                {data.title}
-            </div>
-        );
-    }
+
+    return (
+        <GridListTile>
+            {/* <Item img={cardItem.poster} /> */}
+            <img className={'cardItem'} src={cardItem.poster} alt={cardItem.title} />
+        </GridListTile>
+    );
+
 }
 
 export default CardItem;
