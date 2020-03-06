@@ -9,14 +9,19 @@ import TextInfoCardContent from '@mui-treasury/components/cardContent/textInfo';
 import { useBlogCardContentStyles } from '@mui-treasury/styles/cardContent/blog';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 
+import DummyCardDetail from '../../common/dummyCardDetail.json';
+
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+    wrap: {
+        maxWidth: '1200px'
+    },
     root: {
         margin: 'auto',
         borderRadius: spacing(2), // 16px
         transition: '0.3s',
         boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
-        position: 'relative',
-        maxWidth: 500,
+        // position: 'fixed',
+        // maxWidth: 500,
         marginLeft: 'auto',
         overflow: 'initial',
         background: '#ffffff',
@@ -33,11 +38,10 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
         width: '88%',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginTop: spacing(-3),
-        height: 0,
+        marginTop: 'auto',
+        // height: 0,
         paddingBottom: '48%',
         borderRadius: spacing(2),
-        backgroundColor: '#fff',
         position: 'relative',
         [breakpoints.up('md')]: {
             width: '100%',
@@ -52,7 +56,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
+            // backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
             borderRadius: spacing(2), // 16
             opacity: 0.5,
         },
@@ -73,26 +77,29 @@ const BlogCard = () => {
         ...cardContentStyles
     } = useBlogCardContentStyles();
     const shadowStyles = useOverShadowStyles();
+
+    const onReadMoreButton = () => {
+        alert('READ MORE');
+    }
     return (
-        <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-                className={styles.media}
-                image={
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2000px-Git_icon.svg.png'
-                }
-            />
-            <CardContent>
-                <TextInfoCardContent
-                    classes={cardContentStyles}
-                    overline={'28 MAR 2019'}
-                    heading={'What is Git ?'}
-                    body={
-                        'Git is a distributed version control system. Every dev has a working copy of the code and...'
+        <div className={styles.wrap}>
+            <Card className={cx(styles.root, shadowStyles.root)}>
+                <CardMedia
+                    className={styles.media}
+                    image={
+                        DummyCardDetail.img
                     }
                 />
-                <Button className={buttonStyles}>Read more</Button>
-            </CardContent>
-        </Card>
+                <CardContent>
+                    <TextInfoCardContent
+                        classes={cardContentStyles}
+                        heading={DummyCardDetail.title}
+                        body={DummyCardDetail.summary}
+                    />
+                    <Button className={buttonStyles} onClick={onReadMoreButton}>Read more</Button>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 
