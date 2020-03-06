@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import CardItem from './cardItem';
 import DummyCardItems from '../../common/dummyCardItems.json'
@@ -7,6 +7,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+
+import useEventListener from '../../common/useEventListener';
+
+import configuration from '../../common/configuration';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -33,24 +37,32 @@ const useStyles = makeStyles(theme => ({
 const CardList = (props) => {
     ////////////////////
     //< Constant
-    const cardItems = useState(DummyCardItems)[0];
+    const [cardItems, setCardItems] = useState(DummyCardItems);
+    const [windowSize, setWindowSize] = useState(768);
     const classes = useStyles();
     ////////////////////
     //< React LifeCycle
 
     ////////////////////
     //< Handler (include focus manager)
+    const windowSizeHandler = useCallback(() => {
+        let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+        let windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+
+        setWindowSize(windowWidth);
+    })
 
     ////////////////////
     //< private functions
-    const posterSizeCalc = (itemList) => {
 
-    }
     ////////////////////
     //< Rendering
+    useEventListener('resize', windowSizeHandler);
+    const colsSize = windowSize > configuration.windowSize.small ? 6 : 3;
+
     return (
         <div className={classes.root}>
-            <GridList className={classes.gridList} cols={4}>
+            <GridList className={classes.gridList} cols={colsSize}>
                 {cardItems.map(tile => (
                     <GridListTile key={tile.img}>
                         <img src={tile.img} alt={tile.title} />
