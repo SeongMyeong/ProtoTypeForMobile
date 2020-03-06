@@ -10,6 +10,7 @@ import configuration from '../../common/configuration';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    margin: 'auto',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
@@ -23,7 +24,9 @@ const useStyles = makeStyles(theme => ({
     transform: 'translateZ(0)',
   },
   title: {
-    color: theme.palette.primary.light,
+    color: 'white',
+    fontSize: '1rem',
+    fontFamily: 'Noto Sans KR',
   },
   titleBar: {
     background:
