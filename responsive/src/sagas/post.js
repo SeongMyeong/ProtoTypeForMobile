@@ -1,22 +1,22 @@
 import { all, fork, call, put, takeLatest } from 'redux-saga/effects';
+import * as postAPI from '../lib/api/post/post';
 import {
   POST_REQUEST,
   POST_SUCCESS,
   POST_FAILURE,
   HELLO_SAGA,
 } from '../reducer/post';
-import axios from 'axios';
 
 //서버에다 요청을 보냄
 function postsAPI() {
   try {
-    return axios.get('http://localhost:3065/api/post/getAPI');
+    return postAPI.getAPI();
   } catch (e) {
     console.error(e);
   }
 }
 
-function* posts() {
+function* posts(action) {
   try {
     const res = yield call(postsAPI);
     console.log(res);
@@ -49,8 +49,8 @@ function* helloSaga() {
 function* watchPosts() {
   yield takeLatest(POST_REQUEST, posts);
 }
+
 export default function* postSage() {
   //이벤트리스너들의 순서는 없다
-
   yield all([fork(watchPosts), fork(helloSaga)]);
 }
