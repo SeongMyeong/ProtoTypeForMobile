@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import CardItem from './cardItem';
 import DummyCardItems from '../../common/dummyCardItems.json'
@@ -37,11 +37,15 @@ const useStyles = makeStyles(theme => ({
 const CardList = (props) => {
     ////////////////////
     //< Constant
-    const [cardItems, setCardItems] = useState(DummyCardItems);
-    const [windowSize, setWindowSize] = useState(768);
+    const [cardItems, setCardItems] = useState([]);
+    const [windowSize, setWindowSize] = useState(0);
     const classes = useStyles();
     ////////////////////
     //< React LifeCycle
+    useEffect(() => {
+        setCardItems(DummyCardItems);
+        setWindowSize(window.innerWidth);
+    }, []);
 
     ////////////////////
     //< Handler (include focus manager)
@@ -65,17 +69,24 @@ const CardList = (props) => {
             <GridList className={classes.gridList} cols={colsSize}>
                 {cardItems.map(tile => (
                     <GridListTile key={tile.img}>
-                        <img src={tile.img} alt={tile.title} />
-                        <GridListTileBar
+                        <img src={tile.img} alt={tile.title} height='100%' />
+                        {/* <GridListTileBar
                             title={tile.title}
                             classes={{
                                 root: classes.titleBar,
                                 title: classes.title,
                             }}
-                        />
+                        /> */}
                     </GridListTile>
                 ))}
             </GridList>
+
+
+            {/* <GridList className={classes.gridList} cols={colsSize}>
+                {cardItems.map(cardItem => (
+                    <CardItem cardItem={cardItem} />    CardItem - CardList 분리작업. 적용되지 않았음.
+                ))}
+            </GridList> */}
         </div>
     )
 }
