@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'space-around',
         overflow: 'hidden',
         backgroundColor: theme.palette.background.paper,
+        maxWidth: '1200px'
     },
     gridList: {
         flexWrap: 'nowrap',
