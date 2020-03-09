@@ -1,20 +1,15 @@
 import React from 'react';
 import './App.css';
-import AppLayout from './components/AppLayout';
-import Appbar from './components/Appbar';
-import CardList from './components/grid/cardList';
-import CardItemDetail from './components/detail/cardItemDetail';
-import Footer from './components/Footer';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Browse from './pages/Browse';
+import { Route } from 'react-router-dom';
 function App() {
   return (
     <div>
-      <Appbar />
-      <AppLayout>
-        <CardList />
-        <CardList />
-        <CardItemDetail />
-      </AppLayout>
-      <Footer />
+      <Route path="/browse" component={Browse} />
+      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Home} />
     </div>
   );
 }

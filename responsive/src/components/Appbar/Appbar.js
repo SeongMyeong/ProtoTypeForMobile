@@ -15,6 +15,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import useEventListener from '../../common/useEventListener';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import { useSelector } from 'react-redux';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -91,16 +92,40 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const option = ['홈', '영화', '최신컨텐츠', '내가 찜한 콘텐츠'];
+let defaultOption = ['홈', '영화', '최신컨텐츠', '내가 찜한 콘텐츠'];
+
+function filterOption(gb_cd) {
+  console.log(gb_cd);
+  let filtering = defaultOption.filter(item => {
+    if (gb_cd === 1) {
+      return item;
+    } else if (gb_cd === 2) {
+      return item === '영화' || item === '최신컨텐츠' || item === '홈';
+    } else if (gb_cd === 3) {
+      return item === '홈' || item === '영화';
+    } else if (gb_cd === 4) {
+      return item === '홈';
+    } else {
+      return item;
+    }
+  });
+
+  console.log(filtering);
+  return filtering;
+}
 export default function Appbar() {
+  const { username, gb_cd } = useSelector(state => state.user);
   const classes = useStyles();
+  const [option, setOption] = React.useState(defaultOption);
   const [appbarBlack, setAppbarOpacity] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   //< React LifeCycle
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setOption(filterOption(gb_cd));
+  }, [username, gb_cd]);
 
   // const handleProfileMenuOpen = event => {
   //   setAnchorEl(event.currentTarget);
