@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     height: '56.25vw',
-    maxHeight: '76vh'
+    maxHeight: '76vh',
   },
   heroStaticImage: {
     position: 'absolute',
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     position: 'absolute',
     maxWidth: '1200px',
-    maxHeight: '100vh'
+    maxHeight: '100vh',
   },
   infoMetaLayer: {
     position: 'absolute',
