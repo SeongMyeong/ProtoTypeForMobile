@@ -45,8 +45,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     borderRadius: spacing(2),
     position: 'relative',
     [breakpoints.up('md')]: {
-      width: '100%',
-      marginLeft: spacing(-3),
+      width: '88%',
+      marginLeft: spacing(3),
       marginTop: 0,
       transform: 'translateX(-8px)',
     },
@@ -55,7 +55,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       position: 'absolute',
       top: 0,
       left: 0,
-      width: '100%',
+      width: '80%',
       height: '100%',
       // backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
       borderRadius: spacing(2), // 16

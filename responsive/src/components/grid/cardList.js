@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { POST_REQUEST } from '../../reducer/post';
-import CardItem from './CardItem';
+import CardItem from './cardItem';
 import DummyCardItems from '../../common/dummyCardItems.json';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
