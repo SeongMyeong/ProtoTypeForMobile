@@ -1,17 +1,20 @@
 import React, { useEffect, useCallback } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-// import Switch from '@material-ui/core/Switch';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import useEventListener from '../../common/useEventListener';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -29,30 +32,117 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    margin: '10px',
+  },
+  sectionDivide: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  search: {
+    display: 'flex',
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
 }));
 
+const option = ['홈', '영화', '최신컨텐츠', '내가 찜한 콘텐츠'];
 export default function Appbar() {
   const classes = useStyles();
   const [appbarBlack, setAppbarOpacity] = React.useState(false);
-  const [auth, setAuth] = React.useState(true);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   //< React LifeCycle
   useEffect(() => {}, []);
 
-  const handleChange = event => {
-    setAuth(event.target.checked);
+  // const handleProfileMenuOpen = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleMenu = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+  const handleMobileMenuOpen = event => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
   };
 
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      {option.map(item => {
+        return (
+          <MenuItem variant="h6" className={classes.title}>
+            {item}
+          </MenuItem>
+        );
+      })}
+    </Menu>
+  );
 
   const windowScrollHandler = useCallback(() => {
     let windowScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
@@ -64,23 +154,9 @@ export default function Appbar() {
   }, [window.scrollY]);
 
   useEventListener('scroll', windowScrollHandler);
-
+  const menuId = 'primary-search-account-menu';
   return (
     <div className={classes.root}>
-      {/*
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
-        */}
       <AppBar
         position="static"
         className={classes.appBar}
@@ -95,42 +171,45 @@ export default function Appbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            MOVIE
-          </Typography>
-          {auth && (
-            <div>
+          <div className={classes.sectionDivide}>
+            <div className={classes.sectionDesktop}>
+              {option.map(item => {
+                return (
+                  <Typography variant="h6" className={classes.title}>
+                    {item}
+                  </Typography>
+                );
+              })}
+            </div>
+            <div className={classes.sectionMobile}>
               <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
                 aria-haspopup="true"
-                onClick={handleMenu}
+                onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                <MoreIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
             </div>
-          )}
+
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
+      {renderMobileMenu}
     </div>
   );
 }
