@@ -3,10 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 
+import dummyTopContents from '../../common/dummyTopContents.json';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: 'center',
+    maxWidth: '1200px',
   },
   billboardRow: {
     position: 'relative',
@@ -14,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     height: '56.25vw',
+    maxHeight: '76vh'
   },
   heroStaticImage: {
     position: 'absolute',
@@ -35,6 +39,8 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     left: 0,
     position: 'absolute',
+    maxWidth: '1200px',
+    maxHeight: '100vh'
   },
   infoMetaLayer: {
     position: 'absolute',
@@ -48,9 +54,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   titleWrapper: {
-    minHeight: '13.2vw',
+    // minHeight: '13.2vw',
     position: 'relative',
-    marginBottom: '1.2vw',
+    marginBottom: '1.2vh',
   },
   trailerVignette: {
     // background:
@@ -74,7 +80,7 @@ export default function AppLayout(props) {
       <div className={classes.billboardRow}>
         <img
           className={classes.heroStaticImage}
-          src="https://occ-0-1360-3996.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABV5V0seR4UBdPnjntYZ1YxzNjDYh5nURL0DZo6stuCHPoKFI-p46HbvsBTHiQ0Hr1OjdLx3CcPXNSapH0FZWC9ZULXPp.webp?r=12f"
+          src={dummyTopContents.heroStaticImgSource}
         />
         <div className={classes.fillContent}>
           <div className={classes.infoMetaLayer}>
@@ -82,15 +88,12 @@ export default function AppLayout(props) {
               <div className={classes.titleWrapper}>
                 <img
                   style={{ width: '90%' }}
-                  src="https://occ-0-1360-3996.1.nflxso.net/dnm/api/v6/TsSRXvDuraoJ7apdkH6tsHhf-ZQ/AAAABfCTWCbJnITTufha0LYunmACo3x2eAJ3fWs2PVMyDRyLwuMXDhRq28JoN_WSZ2iYOWx-paBX887oyjFKgKq_Y3I7m3YL_i6PPCDP.webp?r=417"
+                  src={dummyTopContents.titleWrapperImgSource}
                 ></img>
               </div>
 
               <div className={classes.trailerVignette}>
-                테러리스트 조직에게서 플루토늄을 지켜라. 스파이 기관 IMF의 정예
-                요원 에단은 선택의 갈림길에 선다. 미션인가, 동료인가. CIA는
-                요원을 보내 에단을 압박하고, 에단은 핵전쟁을 막으려 다시
-                불가능에 도전한다.
+                {dummyTopContents.trailerVignetteText}
               </div>
             </div>
           </div>
