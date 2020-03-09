@@ -6,6 +6,9 @@ import CardList from './components/grid/CardList';
 
 import CardItemDetail from './components/detail/CardItemDetail';
 import Footer from './components/Footer';
+
+import CardItemDummy from './common/dummyCardDetail.json';
+
 function App() {
   return (
     <div>
@@ -13,7 +16,7 @@ function App() {
       <AppLayout>
         <CardList />
         <CardList />
-        <CardItemDetail />
+        <CardItemDetail itemDetail={CardItemDummy[0]} />
       </AppLayout>
       <Footer />
     </div>

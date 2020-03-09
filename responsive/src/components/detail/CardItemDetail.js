@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -71,13 +71,18 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 }));
 
-const BlogCard = () => {
+const BlogCard = (props) => {
   const styles = useStyles();
   const {
     button: buttonStyles,
     ...cardContentStyles
   } = useBlogCardContentStyles();
   const shadowStyles = useOverShadowStyles();
+  const [itemDetail, setItemDetail] = useState({});
+
+  useEffect(() => {
+    setItemDetail(props.itemDetail);
+  }, [props.itemDetail]);
 
   const onReadMoreButton = () => {
     alert('READ MORE');
@@ -88,12 +93,12 @@ const BlogCard = () => {
         className={cx(styles.root, shadowStyles.root)}
         style={{ margin: 'auto' }}
       >
-        <CardMedia className={styles.media} image={DummyCardDetail.img} />
+        <CardMedia className={styles.media} image={itemDetail.image} />
         <CardContent>
           <TextInfoCardContent
             classes={cardContentStyles}
-            heading={DummyCardDetail.title}
-            body={DummyCardDetail.summary}
+            heading={itemDetail.title}
+            body={itemDetail.summary}
           />
           <Button className={buttonStyles} onClick={onReadMoreButton}>
             Read more
