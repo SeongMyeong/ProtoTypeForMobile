@@ -6,7 +6,7 @@ const CardItem = props => {
 
 
   const { cardItem, classes } = props;
-  console.log('[masonms] cardItem: ', cardItem);
+  // console.log('[masonms] cardItem: ', cardItem);
   return (
     <GridListTile
       key={cardItem.img}
