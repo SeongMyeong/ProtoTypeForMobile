@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: 'center',
+    maxWidth: '1200px',
   },
   billboardRow: {
     position: 'relative',
@@ -14,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     height: '56.25vw',
+    maxHeight: '76vh'
   },
   heroStaticImage: {
     position: 'absolute',
@@ -35,6 +37,8 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     left: 0,
     position: 'absolute',
+    maxWidth: '1200px',
+    maxHeight: '100vh'
   },
   infoMetaLayer: {
     position: 'absolute',
@@ -48,9 +52,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   titleWrapper: {
-    minHeight: '13.2vw',
+    // minHeight: '13.2vw',
     position: 'relative',
-    marginBottom: '1.2vw',
+    marginBottom: '1.2vh',
   },
   trailerVignette: {
     // background:
