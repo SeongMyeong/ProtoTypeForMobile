@@ -1,6 +1,7 @@
 export const initialState = {
   isLoading: false,
   cardData: [],
+  cardIndex: 0
 };
 //setState라고 생각하면됌
 //대신 action 과 리듀서로 변경되었다고 생각
@@ -15,6 +16,9 @@ export const POST_FAILURE = 'POST_FAILURE';
 
 export const HELLO_SAGA = 'HELLO_SAGA';
 export const HELLO_TWO = 'HELLO_TWO';
+
+export const POST_CONTENTS_DETAIL = 'POST_CONTENTS_DETAIL';
+
 export const test1Action = {
   type: TEST1,
   data: {
@@ -67,6 +71,12 @@ const reducer = (state = initialState, action) => {
     }
     case HELLO_TWO: {
       return { ...state };
+    }
+    case POST_CONTENTS_DETAIL: {
+      return {
+        ...state,
+        cardIndex: action.data
+      }
     }
     default:
       // need this for default case

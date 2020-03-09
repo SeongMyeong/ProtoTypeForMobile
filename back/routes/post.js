@@ -13,6 +13,7 @@ router.get('/getAPI', async (req, res, next) => {
   };
 
   let url = 'https://openapi.naver.com/v1/search/movie.json';
+
   function doRequest() {
     return new Promise(function(resolve, reject) {
       request(url, reqOptions, (err, res, result) => {
