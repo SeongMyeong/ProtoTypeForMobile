@@ -80,7 +80,7 @@ const CardList = props => {
   //< Rendering
   useEventListener('resize', windowSizeHandler);
   const colsSize = windowSize > configuration.windowSize.small ? 6 : 3;
-
+  console.log('[masonms] cardData: ', cardData);
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary

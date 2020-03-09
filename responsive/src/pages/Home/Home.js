@@ -6,6 +6,8 @@ import CardItemDetail from '../../components/detail/CardItemDetail';
 import SimpleBarChart from '../../components/Charts/SimpleBarChart';
 import Footer from '../../components/Footer';
 
+import dummyCardItemDetail from '../../common/dummyCardDetail.json';
+
 const Home = () => {
   return (
     <React.Fragment>
@@ -14,7 +16,7 @@ const Home = () => {
         <AppLayout>
           <CardList />
           <CardList />
-          <CardItemDetail />
+          <CardItemDetail itemDetail={dummyCardItemDetail[0]} />
           <SimpleBarChart />
         </AppLayout>
         <Footer />
