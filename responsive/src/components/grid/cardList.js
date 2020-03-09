@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { POST_REQUEST } from '../../reducer/post';
-import CardItem from './cardItem';
+import CardItem from './CardItem';
 import DummyCardItems from '../../common/dummyCardItems.json';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'nowrap',
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
-    maxWidth: '1200px'
+    maxWidth: '1200px',
   },
   title: {
     color: 'white',
