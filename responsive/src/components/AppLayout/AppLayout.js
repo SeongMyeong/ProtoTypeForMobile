@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: 'center',
-    maxWidth: '1200px',
+    //maxWidth: '1200px',
   },
   billboardRow: {
     position: 'relative',
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     height: '56.25vw',
-    maxHeight: '76vh',
+    //maxHeight: '76vh',
   },
   heroStaticImage: {
     position: 'absolute',
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     top: 0,
     bottom: 0,
-    width: '100%',
+    height: '100%',
     opacity: 1,
     //filter: alpha((opacity = 100)),
     transition: 'opacity 400ms cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s',
@@ -102,7 +102,7 @@ export default function AppLayout(props) {
 
       <Grid container spacing={3}>
         <Grid item xs={1}></Grid>
-        <Grid item xs={10}>
+        <Grid item xs={10} md={10} lg={10}>
           {props.children}
         </Grid>
         <Grid item xs={1}></Grid>
