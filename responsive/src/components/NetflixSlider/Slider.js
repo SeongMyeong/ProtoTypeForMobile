@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import cx from 'classnames';
 import SliderContext from './context';
 import Content from './Content';
@@ -6,11 +6,20 @@ import SlideButton from './SlideButton';
 import SliderWrapper from './SliderWrapper';
 import useSliding from './useSliding';
 import useSizeElement from './useSizeElement';
+import useEventListener from '../../common/useEventListener';
 import './Slider.scss';
+import _ from 'lodash';
 
 const Slider = ({ children, activeSlide }) => {
   const [currentSlide, setCurrentSlide] = useState(activeSlide);
   const { width, elementRef } = useSizeElement();
+  const [widthTemp, setWidth] = useState(width);
+  console.log(
+    'React.Children.count(children) ',
+    React.Children.count(children),
+    'widthTemp',
+    widthTemp,
+  );
   const {
     handlePrev,
     handleNext,
@@ -18,8 +27,17 @@ const Slider = ({ children, activeSlide }) => {
     containerRef,
     hasNext,
     hasPrev,
-  } = useSliding(width, React.Children.count(children));
-  console.log('[SEO] WIDTH ', width);
+  } = useSliding(widthTemp, React.Children.count(children));
+  //console.log('[SEO] WIDTH ', width);
+  /* seo  */
+  const windowSizeHandler = useCallback(() => {
+    console.log('elementRef', elementRef);
+    if (!_.isNil(elementRef)) {
+      setWidth(elementRef.current.offsetWidth);
+    }
+  });
+  useEventListener('resize', windowSizeHandler);
+
   const handleSelect = movie => {
     setCurrentSlide(movie);
   };
