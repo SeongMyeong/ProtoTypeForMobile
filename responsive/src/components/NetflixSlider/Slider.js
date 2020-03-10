@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import cx from 'classnames';
 import SliderContext from './context';
 import Content from './Content';
@@ -20,6 +20,9 @@ const Slider = ({ children, activeSlide }) => {
     'widthTemp',
     widthTemp,
   );
+  useEffect(() => {
+    setWidth(elementRef.current.offsetWidth);
+  }, [elementRef]);
   const {
     handlePrev,
     handleNext,
