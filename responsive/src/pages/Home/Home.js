@@ -14,8 +14,8 @@ const Home = () => {
       <div>
         <Appbar />
         <AppLayout>
-          <CardList />
-          <CardList />
+          <SilderList />
+          <SilderList />
           <SilderList />
           <CardItemDetail itemDetail={dummyCardItemDetail[0]} />
           <SimpleBarChart />

@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
     maxWidth: '1200px',
+    // overflow: "hidden"
   },
   title: {
     color: 'white',
@@ -80,7 +81,7 @@ const CardList = props => {
   //< Rendering
   useEventListener('resize', windowSizeHandler);
   const colsSize = windowSize > configuration.windowSize.small ? 6 : 3;
-  console.log('[masonms] cardData: ', cardData);
+  // console.log('[masonms] cardData: ', cardData);
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary

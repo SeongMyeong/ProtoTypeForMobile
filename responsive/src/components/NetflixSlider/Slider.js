@@ -14,12 +14,12 @@ const Slider = ({ children, activeSlide }) => {
   const [currentSlide, setCurrentSlide] = useState(activeSlide);
   const { width, elementRef } = useSizeElement();
   const [widthTemp, setWidth] = useState(width);
-  console.log(
-    'React.Children.count(children) ',
-    React.Children.count(children),
-    'widthTemp',
-    widthTemp,
-  );
+  // console.log(
+  //   'React.Children.count(children) ',
+  //   React.Children.count(children),
+  //   'widthTemp',
+  //   widthTemp,
+  // );
   useEffect(() => {
     setWidth(elementRef.current.offsetWidth);
   }, [elementRef]);
@@ -34,7 +34,7 @@ const Slider = ({ children, activeSlide }) => {
   //console.log('[SEO] WIDTH ', width);
   /* seo  */
   const windowSizeHandler = useCallback(() => {
-    console.log('elementRef', elementRef);
+    // console.log('elementRef', elementRef);
     if (!_.isNil(elementRef)) {
       setWidth(elementRef.current.offsetWidth);
     }
