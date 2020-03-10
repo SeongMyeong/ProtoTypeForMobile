@@ -5,7 +5,7 @@ import CardList from '../../components/grid/CardList';
 import CardItemDetail from '../../components/detail/CardItemDetail';
 import SimpleBarChart from '../../components/Charts/SimpleBarChart';
 import Footer from '../../components/Footer';
-
+import SilderList from '../../components/SilderList';
 import dummyCardItemDetail from '../../common/dummyCardDetail.json';
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
         <AppLayout>
           <CardList />
           <CardList />
+          <SilderList />
           <CardItemDetail itemDetail={dummyCardItemDetail[0]} />
           <SimpleBarChart />
         </AppLayout>
