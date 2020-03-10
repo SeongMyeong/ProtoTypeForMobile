@@ -11,10 +11,10 @@ import useEventListener from '../../common/useEventListener';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    zIndex: 0,
+    zIndex: 4,
     width: '100%',
     height: '50px',
-    maxHeight: '1200px',
+    // maxHeight: '1200px',
     bottom: '0',
     position: 'fixed',
     transition: 'all 1s',

@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     left: 0,
     position: 'absolute',
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     maxHeight: '100vh',
   },
   infoMetaLayer: {

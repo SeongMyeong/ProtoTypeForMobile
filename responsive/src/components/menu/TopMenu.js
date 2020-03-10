@@ -16,13 +16,13 @@ const ITEM_HEIGHT = 48;
 
 const useStyles = makeStyles(({ breakpoints }) => ({
   menuRoot: {
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     [breakpoints.up('md')]: {
       display: 'none',
     },
   },
   tabRoot: {
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     [breakpoints.down('md')]: {
       display: 'none',
     },

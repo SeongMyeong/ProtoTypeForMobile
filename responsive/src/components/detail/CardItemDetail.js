@@ -9,12 +9,11 @@ import TextInfoCardContent from '@mui-treasury/components/cardContent/textInfo';
 import { useBlogCardContentStyles } from '@mui-treasury/styles/cardContent/blog';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 
-import DummyCardDetail from '../../common/dummyCardDetail.json';
-
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   wrap: {
-    maxWidth: '1200px',
-    margin: '1rem',
+    // maxWidth: '1200px',
+    margin: '0px auto',
+    paddingBottom: '20px'
   },
   root: {
     margin: 'auto',
