@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     // maxWidth: 500,
     marginLeft: 'auto',
     overflow: 'initial',
-    background: '#ffffff',
+    background: 'black',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -79,7 +79,7 @@ const BlogCard = props => {
   const [itemDetail, setItemDetail] = useState({});
 
   useEffect(() => {
-    setItemDetail(props.itemDetail);
+    setItemDetail('');
   }, [props.itemDetail]);
 
   const onReadMoreButton = () => {
@@ -91,7 +91,10 @@ const BlogCard = props => {
         className={cx(styles.root, shadowStyles.root)}
         style={{ margin: 'auto' }}
       >
-        <CardMedia className={styles.media} image={itemDetail.image} />
+        <CardMedia
+          className={styles.media}
+          image={'/images/outrenderMain.jpg'}
+        />
         <CardContent>
           <TextInfoCardContent
             classes={cardContentStyles}

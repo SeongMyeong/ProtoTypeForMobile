@@ -7,6 +7,7 @@ import dummyTopContents from '../../common/dummyTopContents.json';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    background: 'black',
     flexGrow: 1,
     textAlign: 'center',
     //maxWidth: '1200px',
@@ -62,6 +63,13 @@ const useStyles = makeStyles(theme => ({
     // background:
     //   'linear-gradient(77deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 85%)',
     //position: 'absolute',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      fontSize: '15px',
+    },
     top: 0,
     left: 0,
     right: '26.09%',
