@@ -1,0 +1,46 @@
+[{
+    "id": 10,
+    "image": "/images/slider_10.jpg",
+    "imageBg": "/images/slider_10b.jpg",
+    "title": "모노노케히메"
+}, {
+    "id": 11,
+    "image": "/images/slider_11.jpg",
+    "imageBg": "/images/slider_11b.jpg",
+    "title": "빌어먹을 세상따위"
+}, {
+    "id": 12,
+    "image": "/images/slider_12.jpg",
+    "imageBg": "/images/slider_12b.jpg",
+    "title": "워킹데드"
+}, {
+    "id": 13,
+    "image": "/images/slider_13.jpg",
+    "imageBg": "/images/slider_13b.jpg",
+    "title": "오티스의 비밀 상담소"
+}, {
+    "id": 14,
+    "image": "/images/slider_14.jpg",
+    "imageBg": "/images/slider_14b.jpg",
+    "title": "디스인챈트"
+}, {
+    "id": 15,
+    "image": "/images/slider_15.jpg",
+    "imageBg": "/images/slider_15b.jpg",
+    "title": "셜록"
+}, {
+    "id": 16,
+    "image": "/images/slider_16.jpg",
+    "imageBg": "/images/slider_16b.jpg",
+    "title": "릭 앤 모티"
+}, {
+    "id": 17,
+    "image": "/images/slider_17.jpg",
+    "imageBg": "/images/slider_17b.jpg",
+    "title": "브레이킹배드"
+}, {
+    "id": 18,
+    "image": "/images/slider_18.jpg",
+    "imageBg": "/images/slider_18b.jpg",
+    "title": "켄간 아슈라"
+}]

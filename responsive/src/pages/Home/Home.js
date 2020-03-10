@@ -7,7 +7,11 @@ import CardItemDetailMain from '../../components/detail/CardItemDetailMain';
 import SimpleBarChart from '../../components/Charts/SimpleBarChart';
 import Footer from '../../components/Footer';
 import SilderList from '../../components/SilderList';
-import dummyCardItemDetail from '../../common/dummyCardDetail.json';
+
+
+import dummySliderData1 from '../../common/dummySliderData1.json';
+import dummySliderData2 from '../../common/dummySliderData2.json';
+import dummySliderData3 from '../../common/dummySliderData3.json';
 
 const Home = () => {
   return (
@@ -15,9 +19,9 @@ const Home = () => {
       <div>
         <Appbar />
         <AppLayout>
-          <SilderList />
-          <SilderList />
-          <SilderList />
+          <SilderList movies={dummySliderData1} />
+          <SilderList movies={dummySliderData2} />
+          <SilderList movies={dummySliderData3} />
           <CardItemDetailMain />
           <SimpleBarChart />
         </AppLayout>
