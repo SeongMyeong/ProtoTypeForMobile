@@ -13,7 +13,6 @@ import DummyCardDetail from '../../common/dummyCardDetail.json';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   wrap: {
-    maxWidth: '1200px',
     margin: '1rem',
   },
   root: {
@@ -35,6 +34,10 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       paddingTop: spacing(2),
     },
   },
+  media_title: {
+    margin: '1rem',
+  },
+
   media: {
     width: '88%',
     margin: '1rem',
@@ -67,6 +70,15 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     marginTop: 24,
     textTransform: 'initial',
   },
+
+  contentStyle: {
+    width: '100%',
+    color: 'white',
+    [breakpoints.up('md')]: {
+      width: '20vh',
+      color: 'white',
+    },
+  },
 }));
 
 const BlogCard = props => {
@@ -96,11 +108,22 @@ const BlogCard = props => {
           image={'/images/outrenderMain.jpg'}
         />
         <CardContent>
+          <div className={styles.contentStyle}>
+            <h1>아웃랜더</h1>
+            <p>
+              18세기 스코틀랜드로 타임슬립한 여성. 과거를 바꾸고 새로운 인연을
+              이어나갈 것인가, 현대로 돌아갈 것인가. 운명의 이야기가 시작된다.
+            </p>
+          </div>
+          {/*
           <TextInfoCardContent
             classes={cardContentStyles}
-            heading={itemDetail.title}
-            body={itemDetail.summary}
-          />
+            heading={'아웃랜더'}
+            body={
+              '18세기 스코틀랜드로 타임슬립한 여성. 과거를 바꾸고 새로운 인연을 이어나갈 것인가, 현대로 돌아갈 것인가. 운명의 이야기가 시작된다.'
+            }
+          />*/}
+
           <Button className={buttonStyles} onClick={onReadMoreButton}>
             Read more
           </Button>
