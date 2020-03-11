@@ -13,7 +13,7 @@ import DummyCardDetail from '../../common/dummyCardDetail.json';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   wrap: {
-    margin: '1rem',
+    marginTop: '1rem',
   },
   root: {
     margin: 'auto',
@@ -39,8 +39,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 
   media: {
-    width: '88%',
-    margin: '1rem',
+    //width: '88%',
+    width: '100%',
+    //margin: '1rem',
     // height: 0,
     paddingBottom: '48%',
     borderRadius: spacing(2),

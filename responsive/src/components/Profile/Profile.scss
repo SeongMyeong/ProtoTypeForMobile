@@ -46,6 +46,7 @@
       .choose-profile {
         margin: 2em 0;
         display: flex;
+        flex-wrap: wrap;
         .profile {
           width: 10vw;
           max-width: 200px;
