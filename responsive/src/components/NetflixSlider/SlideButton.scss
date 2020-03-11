@@ -1,13 +1,15 @@
 .slide-button {
   position: absolute;
   top: 0;
-  bottom: 0;
+  //bottom: 0;
+  bottom: -16px;
   width: 55px;
   background: rgba(0, 0, 0, 0.5);
   border: 0;
   outline: 0;
   padding: 0;
-  margin: 40px 0;
+  //margin: 40px 0;
+  margin: 4px 0;
   z-index: 4;
 
   span {
@@ -15,6 +17,11 @@
     color: #fff;
     display: block;
     margin: 0 auto;
+  }
+  @media screen and (max-width: 768px) {
+    span {
+      width: 18px;
+    }
   }
 
   &--next {
@@ -31,5 +38,10 @@
     span {
       transform: rotateZ(90deg);
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .slide-button {
+    width: 25px;
   }
 }

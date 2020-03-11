@@ -17,7 +17,6 @@ const useSliding = (elementWidth, countElements) => {
 
     setContainerWidth(containerWidth);
     setTotalInViewport(Math.floor(containerWidth / elementWidth));
-
   }, [containerRef.current, elementWidth]);
 
   const handlePrev = () => {
@@ -31,7 +30,9 @@ const useSliding = (elementWidth, countElements) => {
   };
 
   // resizing 뒤 view, distance 등 수정하는 부분 추가
-  const beforeWindowSize = !_.isNull(containerRef.current) ? containerRef.current.clientWidth : 0;
+  const beforeWindowSize = !_.isNull(containerRef.current)
+    ? containerRef.current.clientWidth
+    : 0;
 
   // const usePrevious = currentValue => {
   //   const previousValue = useRef(0);
@@ -48,14 +49,15 @@ const useSliding = (elementWidth, countElements) => {
     // console.log('[masonms] previousValue: ', previousValue);
     clearTimeout(resizedId);
     resizedId = setTimeout(doneResizeWindow, 1000);
-  }
+  };
 
   useEventListener('resize', calcDistance);
 
   const doneResizeWindow = () => {
     // console.log('[masonms] done!');
     // console.log('[masonms] before: windowSize: ', beforeWindowSize, 'after: windowSize: ', containerRef.current.offsetWidth);
-    if (beforeWindowSize < containerRef.current.offsetWidth) {// Window창 크기 커졌을 때,
+    if (beforeWindowSize < containerRef.current.offsetWidth) {
+      // Window창 크기 커졌을 때,
       // console.log('[masonms] 끝남! 창 커짐!');
     } else {
       // console.log('[masonms] 끝남! 창 작아짐!');
@@ -69,7 +71,7 @@ const useSliding = (elementWidth, countElements) => {
     //   setViewed(viewed + totalInViewport);
     //   setDistance(distance - (containerWidth - beforeWindowSize));
     // }
-  }
+  };
 
   // resizing 뒤 view, distance 등 수정하는 부분 추가
 
