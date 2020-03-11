@@ -22,7 +22,13 @@
     transform: translateX(-25%);
   }
 
-  &:not(&--open) .item:hover~.item {
+  &:not(&--open) .item:hover ~ .item {
     transform: translateX(25%);
   }
+}
+.silder-title {
+  color: white;
+  text-align: left;
+  padding-left: 55px;
+  font-size: 2.5vh;
 }

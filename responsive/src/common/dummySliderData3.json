@@ -1,46 +1,59 @@
-[{
-    "id": 19,
-    "image": "/images/slide1.jpg",
-    "imageBg": "/images/slide1b.webp",
-    "title": "1983"
-}, {
-    "id": 20,
-    "image": "/images/slide2.jpg",
-    "imageBg": "/images/slide2b.webp",
-    "title": "Russian doll"
-}, {
-    "id": 21,
-    "image": "/images/slide3.jpg",
-    "imageBg": "/images/slide3b.webp",
-    "title": "The rain"
-}, {
-    "id": 22,
-    "image": "/images/slide4.jpg",
-    "imageBg": "/images/slide4b.webp",
-    "title": "Sex education"
-}, {
-    "id": 23,
-    "image": "/images/slide5.jpg",
-    "imageBg": "/images/slide5b.webp",
-    "title": "Elite"
-}, {
-    "id": 24,
-    "image": "/images/slide6.jpg",
-    "imageBg": "/images/slide6b.webp",
-    "title": "Black mirror"
-}, {
-    "id": 25,
-    "image": "/images/slider_19.jpg",
-    "imageBg": "/images/slider_19b.jpg",
-    "title": "아이 엠 낫 오케이"
-}, {
-    "id": 26,
-    "image": "/images/slider_20.jpg",
-    "imageBg": "/images/slider_20b.jpg",
-    "title": "전생했더니 슬라임이었던 건에 대하여"
-}, {
-    "id": 27,
-    "image": "/images/slider_21.jpg",
-    "imageBg": "/images/slider_21b.jpg",
-    "title": "굿 플레이스"
-}]
+{
+  "title": "현재 인기 영화",
+  "movies": [
+    {
+      "id": 19,
+      "image": "/images/slide1.jpg",
+      "imageBg": "/images/slide1b.webp",
+      "title": "1983"
+    },
+    {
+      "id": 20,
+      "image": "/images/slide2.jpg",
+      "imageBg": "/images/slide2b.webp",
+      "title": "Russian doll"
+    },
+    {
+      "id": 21,
+      "image": "/images/slide3.jpg",
+      "imageBg": "/images/slide3b.webp",
+      "title": "The rain"
+    },
+    {
+      "id": 22,
+      "image": "/images/slide4.jpg",
+      "imageBg": "/images/slide4b.webp",
+      "title": "Sex education"
+    },
+    {
+      "id": 23,
+      "image": "/images/slide5.jpg",
+      "imageBg": "/images/slide5b.webp",
+      "title": "Elite"
+    },
+    {
+      "id": 24,
+      "image": "/images/slide6.jpg",
+      "imageBg": "/images/slide6b.webp",
+      "title": "Black mirror"
+    },
+    {
+      "id": 25,
+      "image": "/images/slider_19.jpg",
+      "imageBg": "/images/slider_19b.jpg",
+      "title": "아이 엠 낫 오케이"
+    },
+    {
+      "id": 26,
+      "image": "/images/slider_20.jpg",
+      "imageBg": "/images/slider_20b.jpg",
+      "title": "전생했더니 슬라임이었던 건에 대하여"
+    },
+    {
+      "id": 27,
+      "image": "/images/slider_21.jpg",
+      "imageBg": "/images/slider_21b.jpg",
+      "title": "굿 플레이스"
+    }
+  ]
+}

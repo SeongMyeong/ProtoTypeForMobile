@@ -18,14 +18,24 @@ const Home = props => {
       props.history.push('/browse');
     }
   }, []);
+  console.log('dummySliderData1', dummySliderData1);
   return (
     <React.Fragment>
       <div>
         <Appbar />
         <AppLayout>
-          <SilderList movies={dummySliderData1} />
-          <SilderList movies={dummySliderData2} />
-          <SilderList movies={dummySliderData3} />
+          <SilderList
+            movies={dummySliderData1.movies}
+            title={dummySliderData1.title}
+          />
+          <SilderList
+            movies={dummySliderData2.movies}
+            title={dummySliderData2.title}
+          />
+          <SilderList
+            movies={dummySliderData3.movies}
+            title={dummySliderData3.title}
+          />
           <CardItemDetailMain />
           <SimpleBarChart />
         </AppLayout>

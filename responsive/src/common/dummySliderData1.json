@@ -1,46 +1,59 @@
-[{
-    "id": 1,
-    "image": "/images/slider_1.jpg",
-    "imageBg": "/images/slider_1b.jpg",
-    "title": "킹덤"
-}, {
-    "id": 2,
-    "image": "/images/slider_2.jpg",
-    "imageBg": "/images/slider_2b.jpg",
-    "title": "원펀맨"
-}, {
-    "id": 3,
-    "image": "/images/slider_3.jpg",
-    "imageBg": "/images/slider_3b.jpg",
-    "title": "위쳐"
-}, {
-    "id": 4,
-    "image": "/images/slider_4.jpg",
-    "imageBg": "/images/slider_4b.jpg",
-    "title": "얼티브카본"
-}, {
-    "id": 5,
-    "image": "/images/slider_5.jpg",
-    "imageBg": "/images/slider_5b.jpg",
-    "title": "캐슬매니아"
-}, {
-    "id": 6,
-    "image": "/images/slider_6.jpg",
-    "imageBg": "/images/slider_6b.jpg",
-    "title": "카케구루이"
-}, {
-    "id": 7,
-    "image": "/images/slider_7.jpg",
-    "imageBg": "/images/slider_7b.jpg",
-    "title": "진격의 거인"
-}, {
-    "id": 8,
-    "image": "/images/slider_8.jpg",
-    "imageBg": "/images/slider_8b.jpg",
-    "title": "종이의 집"
-}, {
-    "id": 9,
-    "image": "/images/slider_9.jpg",
-    "imageBg": "/images/slider_9b.jpg",
-    "title": "기묘한 이야기"
-}]
+{
+  "title": "영화",
+  "movies": [
+    {
+      "id": 1,
+      "image": "/images/slider_1.jpg",
+      "imageBg": "/images/slider_1b.jpg",
+      "title": "킹덤"
+    },
+    {
+      "id": 2,
+      "image": "/images/slider_2.jpg",
+      "imageBg": "/images/slider_2b.jpg",
+      "title": "원펀맨"
+    },
+    {
+      "id": 3,
+      "image": "/images/slider_3.jpg",
+      "imageBg": "/images/slider_3b.jpg",
+      "title": "위쳐"
+    },
+    {
+      "id": 4,
+      "image": "/images/slider_4.jpg",
+      "imageBg": "/images/slider_4b.jpg",
+      "title": "얼티브카본"
+    },
+    {
+      "id": 5,
+      "image": "/images/slider_5.jpg",
+      "imageBg": "/images/slider_5b.jpg",
+      "title": "캐슬매니아"
+    },
+    {
+      "id": 6,
+      "image": "/images/slider_6.jpg",
+      "imageBg": "/images/slider_6b.jpg",
+      "title": "카케구루이"
+    },
+    {
+      "id": 7,
+      "image": "/images/slider_7.jpg",
+      "imageBg": "/images/slider_7b.jpg",
+      "title": "진격의 거인"
+    },
+    {
+      "id": 8,
+      "image": "/images/slider_8.jpg",
+      "imageBg": "/images/slider_8b.jpg",
+      "title": "종이의 집"
+    },
+    {
+      "id": 9,
+      "image": "/images/slider_9.jpg",
+      "imageBg": "/images/slider_9b.jpg",
+      "title": "기묘한 이야기"
+    }
+  ]
+}

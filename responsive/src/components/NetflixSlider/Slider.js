@@ -10,7 +10,7 @@ import useEventListener from '../../common/useEventListener';
 import './Slider.scss';
 import _ from 'lodash';
 
-const Slider = ({ children, activeSlide }) => {
+const Slider = ({ children, activeSlide, silderTitle }) => {
   const [currentSlide, setCurrentSlide] = useState(activeSlide);
   const { width, elementRef } = useSizeElement();
   const [widthTemp, setWidth] = useState(width);
@@ -59,6 +59,7 @@ const Slider = ({ children, activeSlide }) => {
   return (
     <SliderContext.Provider value={contextValue}>
       <SliderWrapper>
+        <div className="silder-title">{silderTitle}</div>
         <div className={cx('slider', { 'slider--open': currentSlide != null })}>
           <div ref={containerRef} className="slider__container" {...slideProps}>
             {children}
