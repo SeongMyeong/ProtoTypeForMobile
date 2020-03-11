@@ -18,17 +18,23 @@ def getNaverMovieData(type, mysqlDB):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
         'referer': 'https://movie.naver.com/'
     }
-
     r = requests.get(url, params=payload, headers=headers)
     # r = requests.post(url, data=payload, headers=headers, cookies = self.cookies_dict)
     #print(r.json().movieChartList
     #movieChartList = r.json().movieChartList
     for searchType in r.json()['movieChartList']:
         movieInsertData = []
+        # movie_image_tb 만들기용
+        moviInserteCodeList = []
         key = list(searchType.keys())[0]
         for movieData in searchType[key]:
             movieDataList  = []
+            movieCodeList = []
             for movieKey in list(movieData.keys()):
+                #movie_image_tb 만들기용
+                #if movieKey == 'movieCode':
+                    #movieCodeList.append(movieData[movieKey])
+
                 #pass 시킴
                 if movieKey == 'korGradeList':
                     movieDataList.append('codeEmpty')
@@ -65,11 +71,34 @@ def getNaverMovieData(type, mysqlDB):
             movieDataList.insert(1, key)
             #멀티플 insert는 tuple 변환 해줘야함
             movieInsertData.append(tuple(movieDataList))
+            #moviInserteCodeList.append(tuple(movieCodeList))
 
         print(movieInsertData)
         # insert db
         MOVIE_SQL = "REPLACE INTO MOVIE_TB VALUES(%s,%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         mysqlDB.insertData(MOVIE_SQL, movieInsertData)
+        #mysqlDB.insertData("REPLACE INTO MOVIE_IMAGE_TB(MOVIE_CODE) VALUE(%s)", moviInserteCodeList)
+# naver full page image
+def getNaverMovieFullImage(movieCode, mysqlDB):
+    url = 'https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode=' + movieCode
+    payload = {}
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+        'sec-fetch-mode': 'nested-navigate',
+        'sec-fetch-site': 'same-origin',
+        'Upgrade-Insecure-Requests': '1',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+        'referer': 'https://movie.naver.com/'
+    }
+    r = requests.get(url, params=payload, headers=headers)
+    #beatifule soup
+    soup = BeautifulSoup(r.text, "html.parser")
+    posterFullImagePath = soup.find('img')['src']
+
+    MOVIE_IMAGE_SQL = "REPLACE INTO MOVIE_IMAGE_TB(MOVIE_CODE, POSTER_FULL_IMAGE_PATH) VALUES(%s,%s)"
+    mysqlDB.insertData(MOVIE_IMAGE_SQL, [( movieCode, posterFullImagePath)])
 
 if __name__ == "__main__":
     TEST = False
@@ -77,6 +106,16 @@ if __name__ == "__main__":
         pass
     else:
         mysqlDB = db.database()
-        getNaverMovieData('CURRENT', mysqlDB)
-        getNaverMovieData('POINT', mysqlDB)
+        #절차 집어넣기
 
+        # 1. 네이버 무비 현재 데이터 가져오기
+        #getNaverMovieData('CURRENT', mysqlDB)
+        #getNaverMovieData('POINT', mysqlDB)
+
+        # MOVIE TB에 있는 MOVIE_CODE 가져오기
+        data = (mysqlDB.select_database_table('SELECT MOVIE_CODE FROM MOVIE_TB'))
+
+        # MOVIE TB에 있는 CODE 이용해서 MOVIE_FULL_IMAGE_PATH 가져오기
+        for row_data in data:
+            getNaverMovieFullImage(str(row_data[0]), mysqlDB)
+            time.sleep(1)
