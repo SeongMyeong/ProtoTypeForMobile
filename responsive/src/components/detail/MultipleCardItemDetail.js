@@ -72,7 +72,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
         marginTop: 24,
         textTransform: 'initial',
     },
-
     contentStyle: {
         width: '100%',
         color: 'white',
@@ -99,6 +98,7 @@ const MultipleCardItemDetail = props => {
         button: buttonStyles,
         ...cardContentStyles
     } = useBlogCardContentStyles();
+
     const shadowStyles = useOverShadowStyles();
     const [itemDetail, setItemDetail] = useState({});
     const [detailItems, setDetailItems] = useState([]);
@@ -128,48 +128,12 @@ const MultipleCardItemDetail = props => {
                             <h1 className={styles.contentH1Style}>{cardDetail.title}</h1>
                             <p className={styles.contentPStyle}>{window.innerWidth <= 430 ? cardDetail.detail.substring(0, 20).concat('...') : cardDetail.detail}</p>
                         </div>
-                        <Button className={buttonStyles} onClick={onReadMoreButton}>
+                        <Button className={buttonStyles} style={window.innerWidth <= 430 ? { fontSize: '2vw' } : {}} onClick={onReadMoreButton}>
                             더 보기
                     </Button>
                     </CardContent>
                 </Card>
             ))}
-            {/* <Card
-                className={cx(styles.root, shadowStyles.root)}
-                style={{ margin: 'auto' }}
-            >
-                <CardMedia
-                    className={styles.media}
-                    image={'/images/slider_1b.jpg'}
-                />
-                <CardContent>
-                    <div className={styles.contentStyle}>
-                        <h1>킹덤</h1>
-                        <p>{contentsString1}</p>
-                    </div>
-                    <Button className={buttonStyles} onClick={onReadMoreButton}>
-                        더 보기
-                    </Button>
-                </CardContent>
-            </Card>
-            <Card
-                className={cx(styles.root, shadowStyles.root)}
-                style={{ margin: 'auto' }}
-            >
-                <CardMedia
-                    className={styles.media}
-                    image={'/images/outrenderMain.jpg'}
-                />
-                <CardContent>
-                    <div className={styles.contentStyle}>
-                        <h1>아웃랜더</h1>
-                        <p>{contentsString2}</p>
-                    </div>
-                    <Button className={buttonStyles} onClick={onReadMoreButton}>
-                        더 보기
-                    </Button>
-                </CardContent>
-            </Card> */}
         </div>
     );
 };
