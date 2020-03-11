@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import cx from 'classnames';
 import SliderContext from './context';
 import Content from './Content';
@@ -34,12 +34,13 @@ const Slider = ({ children, activeSlide, silderTitle }) => {
   //console.log('[SEO] WIDTH ', width);
   /* seo  */
   const windowSizeHandler = useCallback(() => {
-    // console.log('elementRef', elementRef);
+    console.log('elementRef', elementRef);
     if (!_.isNil(elementRef)) {
       setWidth(elementRef.current.offsetWidth);
     }
   });
-  useEventListener('resize', windowSizeHandler);
+
+  useEventListener('resize', _.debounce(windowSizeHandler, 500));
 
   const handleSelect = movie => {
     setCurrentSlide(movie);
