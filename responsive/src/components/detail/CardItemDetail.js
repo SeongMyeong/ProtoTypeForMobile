@@ -9,12 +9,11 @@ import TextInfoCardContent from '@mui-treasury/components/cardContent/textInfo';
 import { useBlogCardContentStyles } from '@mui-treasury/styles/cardContent/blog';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 
-import DummyCardDetail from '../../common/dummyCardDetail.json';
-
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   wrap: {
-    maxWidth: '1200px',
-    margin: 'auto',
+    // maxWidth: '1200px',
+    margin: '0px auto',
+    paddingBottom: '20px'
   },
   root: {
     margin: 'auto',
@@ -37,9 +36,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   media: {
     width: '88%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 'auto',
+    margin: '1rem',
     // height: 0,
     paddingBottom: '48%',
     borderRadius: spacing(2),
@@ -71,7 +68,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 }));
 
-const BlogCard = (props) => {
+const BlogCard = props => {
   const styles = useStyles();
   const {
     button: buttonStyles,

@@ -20,25 +20,23 @@ export const ProfileItem = ({ item, history }) => {
   };
   return (
     <li className="profile">
-      <div>
-        <Link
-          className="profile-link"
-          tabindex="0"
-          //href="/SwitchProfile?tkn=3NDFPN5UTBGVBNDS564IWJ5GEA"
-          //to="/"
-          onClick={() => login(item)}
-          data-uia="action-select-profile+secondary"
-        >
-          <div className="avatar-wrapper">
-            <div
-              className="profile-icon"
-              style={{ backgroundImage: `url(${item.backgroundURL})` }}
-            ></div>
-          </div>
-          <span className="profile-name">{item.name}</span>
-        </Link>
-        <div className="profile-children"></div>
-      </div>
+      <Link
+        className="profile-link"
+        tabindex="0"
+        //href="/SwitchProfile?tkn=3NDFPN5UTBGVBNDS564IWJ5GEA"
+        //to="/"
+        onClick={() => login(item)}
+        data-uia="action-select-profile+secondary"
+      >
+        <div className="avatar-wrapper">
+          <div
+            className="profile-icon"
+            style={{ backgroundImage: `url(${item.backgroundURL})` }}
+          ></div>
+        </div>
+        <span className="profile-name">{item.name}</span>
+      </Link>
+      <div className="profile-children"></div>
     </li>
   );
 };

@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
 let defaultOption = ['홈', '영화', '최신컨텐츠', '내가 찜한 콘텐츠'];
 
 function filterOption(gb_cd) {
-  console.log(gb_cd);
+  // console.log(gb_cd);
   let filtering = defaultOption.filter(item => {
     if (gb_cd === 1) {
       return item;
@@ -110,7 +110,7 @@ function filterOption(gb_cd) {
     }
   });
 
-  console.log(filtering);
+  // console.log(filtering);
   return filtering;
 }
 export default function Appbar() {

@@ -1,0 +1,15 @@
+[{
+        "id": 1,
+        "image": "/images/slider_1.jpg",
+        "imageBg": "/images/slider_1b.jpg",
+        "title": "킹덤",
+        "detail": "죽은 자들이 살아나 생지옥이 된 위기의 조선, 왕권을 탐하는 조씨 일가의 탐욕과 누구도 믿을 수 없게 되어버린 왕세자 창의 피의 사투를 그린 미스터리 스릴러"
+    },
+    {
+        "id": 2,
+        "image": "/images/slider_2.jpg",
+        "imageBg": "/images/slider_2b.jpg",
+        "title": "원펀맨",
+        "detail": "취미로 영웅을 시작한 남자가 3년간의 특훈을 통해 무적의 힘을 손에 넣어 모든 적을 일격·원펀으로 이기는 영웅이 되고, 제노스와 함께 영웅 협회에서 정식 영웅 활동을 시작하는 이야기"
+    }
+]
