@@ -82,10 +82,14 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
         }
     },
     contentH1Style: {
-        fontSize: '1.8vh'
+        [breakpoints.down('md')]: {
+            fontSize: '1.8vh'
+        }
     },
     contentPStyle: {
-        fontSize: '1.3vh'
+        [breakpoints.down('md')]: {
+            fontSize: '1.3vh'
+        }
     }
 }));
 
