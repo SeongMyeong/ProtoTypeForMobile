@@ -1,0 +1,2 @@
+id=''
+db_passwd =''
