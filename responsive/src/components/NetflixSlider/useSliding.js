@@ -5,18 +5,28 @@ import _ from 'lodash';
 
 const PADDINGS = 110;
 
+const usePrevious = currentValue => {
+  const previousValue = useRef(0);
+  useEffect(() => {
+    previousValue.current = currentValue;
+  }, [currentValue]);
+  return previousValue.current;
+};
+
 const useSliding = (elementWidth, countElements) => {
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [distance, setDistance] = useState(0);
   const [totalInViewport, setTotalInViewport] = useState(0);
   const [viewed, setViewed] = useState(0);
+  let previousContainerWidthValue = usePrevious(containerWidth);
 
+  //console.log('previousContainerWidthValue ', previousContainerWidthValue);
   useEffect(() => {
     const containerWidth = containerRef.current.clientWidth - PADDINGS;
-
     setContainerWidth(containerWidth);
     setTotalInViewport(Math.floor(containerWidth / elementWidth));
+    //calcDistance(previousContainerWidthValue, containerWidth);
   }, [containerRef.current, elementWidth]);
 
   const handlePrev = () => {
@@ -34,24 +44,20 @@ const useSliding = (elementWidth, countElements) => {
     ? containerRef.current.clientWidth
     : 0;
 
-  // const usePrevious = currentValue => {
-  //   const previousValue = useRef(0);
-  //   useEffect(() => {
-  //     previousValue.current = currentValue;
-  //   }, [currentValue]);
-  //   return previousValue.current;
+  // let resizedId;
+  // const calcDistance = (previousContainerWidthValue, containerWidthValue) => {
+  //   if (previousContainerWidthValue !== 0 && distance !== 0) {
+  //     setDistance(
+  //       distance + (previousContainerWidthValue - containerWidthValue),
+  //     );
+  //   }
+  //   console.log(
+  //     'previousContainerWidthValue ',
+  //     previousContainerWidthValue,
+  //     'CONTAINER WITDH ',
+  //     containerWidthValue,
+  //   );
   // };
-
-  let resizedId;
-  const calcDistance = () => {
-    const containerWidth = containerRef.current.clientWidth - PADDINGS;
-    // const previousValue = usePrevious(containerWidth);
-    // console.log('[masonms] previousValue: ', previousValue);
-    clearTimeout(resizedId);
-    resizedId = setTimeout(doneResizeWindow, 1000);
-  };
-
-  useEventListener('resize', calcDistance);
 
   const doneResizeWindow = () => {
     // console.log('[masonms] done!');
